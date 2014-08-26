@@ -15,6 +15,8 @@ var WinLinesLayer = cc.Layer.extend({
         this.size = cc.director.getWinSize();
 
         cc.SpriteFrameCache.getInstance().addSpriteFrames(res.textureLine01_plist);
+        cc.SpriteFrameCache.getInstance().addSpriteFrames(res.textureLine02_plist);
+        cc.SpriteFrameCache.getInstance().addSpriteFrames(res.textureLine03_plist);
         cc.SpriteFrameCache.getInstance().addSpriteFrames(res.textureAssets01_plist);
         this.createUI();
 
@@ -40,6 +42,20 @@ var WinLinesLayer = cc.Layer.extend({
             this.addChild(line);
             this.linesAry.push(line);
         }
+        for (var j=23; j<40; j++) {
+            var winLineName = "winline-0" + j + ".png";
+            var line = cc.Sprite.createWithSpriteFrameName(winLineName);
+            line.setPosition(this.size.width/2,this.size.height/2)
+            this.addChild(line);
+            this.linesAry.push(line);
+        }
+        for (var k=40; k<51; k++) {
+            var winLineName = "winline-0" + k + ".png";
+            var line = cc.Sprite.createWithSpriteFrameName(winLineName);
+            line.setPosition(this.size.width/2,this.size.height/2)
+            this.addChild(line);
+            this.linesAry.push(line);
+        }
         this.currentLineNum = 50;
     },
     addBetLine:function(){
@@ -50,12 +66,13 @@ var WinLinesLayer = cc.Layer.extend({
             tempNum += 1;
         }
         this.curScene.betLineChange(tempNum);
+        this.hideWinLineClipper()
     },
     changeBetLine:function(num){
         if(this.currentLineNum != num){
             this.currentLineNum = num;
         }
-        for(var i=0; i<22; i++){
+        for(var i=0; i<50; i++){
             var line = this.linesAry[i];
             if(i<this.currentLineNum){
                 line.setVisible(true);
@@ -63,11 +80,16 @@ var WinLinesLayer = cc.Layer.extend({
                 line.setVisible(false);
             }
         }
+        this.hideWinLineClipper()
+    },
+    hideWinLineClipper:function(){
+        if(this.winLineClipper)
+        this.winLineClipper.setVisible(false);
     },
     showWinLine:function(index){
         this.setVisible(true);
 
-        for(var i=0; i<22; i++){
+        for(var i=0; i<50; i++){
             var line = this.linesAry[i];
 //            if(i == index){
 //                line.setVisible(true);
@@ -83,7 +105,7 @@ var WinLinesLayer = cc.Layer.extend({
             this.stencil.addChild(tempStencil);
         }
         this.winLineClipper.setStencil(this.stencil);
-
+        this.winLineClipper.setVisible(true);
         var tempLine = cc.Sprite.createWithSpriteFrameName("winline-002.png");
         tempLine.setPosition(this.size.width/2,this.size.height/2);
 //        var tempLine = cc.LayerColor.create(cc.c4b(0,255,255,255),this.size.width,this.size.height);

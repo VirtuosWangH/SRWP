@@ -19,12 +19,16 @@ var res = {
     textureAssets01_png : 'res/exported/assets01.png',
     textureAssets02_png : 'res/exported/assets02.png',
     textureLine01_png : 'res/exported/line01.png',
+    textureLine02_png : 'res/exported/line02.png',
+    textureLine03_png : 'res/exported/line03.png',
 
     textureControl_plist : 'res/exported/controlBar.plist',
     textureTablet_plist : 'res/exported/tablet.plist',
     textureAssets01_plist : 'res/exported/assets01.plist',
     textureAssets02_plist : 'res/exported/assets02.plist',
     textureLine01_plist : 'res/exported/line01.plist',
+    textureLine02_plist : 'res/exported/line02.plist',
+    textureLine03_plist : 'res/exported/line03.plist',
 
     textureTile_png : 'res/exported/winLines/tile.png',
     textureTile_xml : 'res/exported/winLines/tile.xml',
@@ -87,6 +91,8 @@ var g_maingame = [
     {src:res.textureAssets01_png},
     {src:res.textureAssets02_png},
     {src:res.textureLine01_png},
+    {src:res.textureLine02_png},
+    {src:res.textureLine03_png},
     //tmx
     //{src:res.level01_tmx},
 
@@ -96,6 +102,8 @@ var g_maingame = [
     {src:res.textureAssets01_plist},
     {src:res.textureAssets02_plist},
     {src:res.textureLine01_plist},
+    {src:res.textureLine02_plist},
+    {src:res.textureLine03_plist},
 
     //xml
     {src:res.textureTile_png},

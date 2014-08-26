@@ -97,9 +97,11 @@ var GameScene = cc.Scene.extend({
         this.winLinesLayer.setVisible(true);
         this.winLinesLayer.changeBetLine(num);
         this.betLineSelectorLayer.updateBetLine(num);
+        this.winFrameLayer.removeFrames();
     },
     addOneBetLine:function(){
         this.winLinesLayer.setVisible(true);
         this.winLinesLayer.addBetLine();
+        this.winFrameLayer.removeFrames();
     }
 })

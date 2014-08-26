@@ -95,9 +95,6 @@ var BetLineSelectorLayer = cc.Layer.extend({
         this.leftSlider.getChildByTag("slider").setString(currentBetNum);
         this.rightSlider.getChildByTag("sliderR").setString(currentBetNum);
 
-        if(currentBetNum>22){
-            currentBetNum = 22
-        }
         if(this.currentBetLine!=currentBetNum){
             this.currentBetLine = currentBetNum;
             this.curScene.betLineChange(currentBetNum);
